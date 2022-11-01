@@ -1,6 +1,7 @@
 package me.somaan.farmapp;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 public class Veterinary {
     private int vetID;
@@ -24,7 +25,6 @@ public class Veterinary {
     public int getVetID() {
         return vetID;
     }
-
     private void setVetID(int vetID) {
         this.vetID = vetID;
     }
@@ -32,7 +32,6 @@ public class Veterinary {
     public String getGender() {
         return gender;
     }
-
     private void setGender(String gender) {
         this.gender = gender;
     }
@@ -51,5 +50,13 @@ public class Veterinary {
 
     public void setSalary(double salary) {
         this.salary = salary;
+    }
+
+
+    public void printDetails() {
+        System.out.println("Veterinary's ID: " + getVetID());
+        System.out.println("Veterinary's gender: " + getGender());
+        System.out.println("Veterinary's date of birth: " + getDateOfBirth().format(DateTimeFormatter.ofPattern("dd/MM/yyyy")));
+        System.out.println("Veterinary's Salary: " + getSalary());
     }
 }

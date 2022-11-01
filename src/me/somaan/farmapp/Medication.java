@@ -27,7 +27,6 @@ public class Medication {
     public String getDetails() {
         return details;
     }
-
     public void setDetails(String details) {
         this.details = details;
     }
@@ -35,7 +34,6 @@ public class Medication {
     public int getDuration() {
         return duration;
     }
-
     private void setDuration(int duration) {
         this.duration = duration;
     }
@@ -43,7 +41,6 @@ public class Medication {
     public LocalDate getStartDate() {
         return startDate;
     }
-
     private void setStartDate(LocalDate startDate) {
         this.startDate = startDate;
     }
@@ -51,7 +48,6 @@ public class Medication {
     public double getDosage() {
         return dosage;
     }
-
     private void setDosage(double dosage) {
         this.dosage = dosage;
     }
@@ -59,7 +55,6 @@ public class Medication {
     public String getNotes() {
         return notes;
     }
-
     public void setNotes(String notes) {
         this.notes = notes;
     }

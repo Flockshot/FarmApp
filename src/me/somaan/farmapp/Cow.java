@@ -2,6 +2,7 @@ package me.somaan.farmapp;
 
 import java.time.LocalDate;
 import java.time.Period;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Collection;
 
@@ -9,26 +10,42 @@ public class Cow {
     private int tagNo;
     private String gender;
     private LocalDate dateOfBirth;
-    private boolean purchased;
-    private Collection<Treatment> treatmentsReceived;
+    private boolean isPurchased;
+    private ArrayList<Treatment> treatmentsReceived;
 
 
-    public Cow(int tagNo, String gender, LocalDate dateOfBirth, boolean purchased) {
-        this(tagNo, gender, dateOfBirth, purchased, new ArrayList<Treatment>());
+    public Cow(int tagNo, String gender, LocalDate dateOfBirth, boolean isPurchased) {
+        this(tagNo, gender, dateOfBirth, isPurchased, new ArrayList<Treatment>());
     }
 
-    public Cow(int tagNo, String gender, LocalDate dateOfBirth, boolean purchased, Collection<Treatment> treatmentsReceived) {
+    public Cow(int tagNo, String gender, LocalDate dateOfBirth, boolean isPurchased, ArrayList<Treatment> treatmentsReceived) {
         setTagNo(tagNo);
         setGender(gender);
         setDateOfBirth(dateOfBirth);
-        setPurchased(purchased);
+        setPurchased(isPurchased);
         setTreatmentsReceived(treatmentsReceived);
     }
 
 
     public int getAge() {
-        Period period = Period.between(LocalDate.now(), getDateOfBirth());
+        Period period = Period.between(getDateOfBirth(), LocalDate.now());
         return period.getYears();
+    }
+
+    public void printDetails() {
+        System.out.println("Cow's tag number: " + getTagNo());
+        System.out.println("Cow's gender: " + getGender());
+        System.out.println("Cow's date of birth: " + getDateOfBirth().format(DateTimeFormatter.ofPattern("dd/MM/yyyy")));
+        System.out.println("Cow's age: " + getAge());
+        System.out.println(isPurchased() ? "Cow is purchased" : "Cow is farm-raised");
+
+        System.out.println("Treatments Received:");
+        if (getTreatmentsReceived().size() > 0)
+            System.out.println("None");
+        else
+            getTreatmentsReceived().forEach(treatment -> treatment.printDetails());
+
+        System.out.println("");
     }
 
 
@@ -43,7 +60,6 @@ public class Cow {
     public String getGender() {
         return gender;
     }
-
     private void setGender(String gender) {
         this.gender = gender;
     }
@@ -57,18 +73,20 @@ public class Cow {
     }
 
     public boolean isPurchased() {
-        return purchased;
+        return isPurchased;
     }
 
-    private void setPurchased(boolean purchased) {
-        this.purchased = purchased;
+    private void setPurchased(boolean isPurchased) {
+        this.isPurchased = isPurchased;
     }
 
-    public Collection<Treatment> getTreatmentsReceived() {
+    public ArrayList<Treatment> getTreatmentsReceived() {
         return treatmentsReceived;
     }
 
-    private void setTreatmentsReceived(Collection<Treatment> treatmentsReceived) {
+    private void setTreatmentsReceived(ArrayList<Treatment> treatmentsReceived) {
         this.treatmentsReceived = treatmentsReceived;
     }
+
+
 }
