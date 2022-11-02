@@ -66,11 +66,15 @@ public class Treatment {
 
 
     public void printDetails() {
-        System.out.println("Treatment given by vet with ID: " + getGivenBy().getVetID());
+        System.out.println("Treatment given by vet: ");
+        getGivenBy().printDetails();
         System.out.println("Treatment's date: " + getDateOfTreatment().format(DateTimeFormatter.ofPattern("dd/MM/yyyy")));
         System.out.println("Treatment's details: " + getDetails());
         System.out.println("Treatment's medications: ");
-        getMedications().forEach(medication -> medication.printDetails());
+        for (Medication medication : getMedications())
+            medication.printDetails();
+
+        System.out.println("");
 
     }
 }

@@ -43,7 +43,9 @@ public class Cow {
         if (getTreatmentsReceived().size() > 0)
             System.out.println("None");
         else
-            getTreatmentsReceived().forEach(treatment -> treatment.printDetails());
+            for (Treatment treatment : getTreatmentsReceived())
+                treatment.printDetails();
+
 
         System.out.println("");
     }

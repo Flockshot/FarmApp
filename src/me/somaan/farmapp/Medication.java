@@ -48,6 +48,7 @@ public class Medication {
     public double getDosage() {
         return dosage;
     }
+
     private void setDosage(double dosage) {
         this.dosage = dosage;
     }
@@ -55,7 +56,17 @@ public class Medication {
     public String getNotes() {
         return notes;
     }
+
     public void setNotes(String notes) {
         this.notes = notes;
+    }
+
+    public void printDetails() {
+        System.out.println("Medication details: " + getDetails());
+        System.out.println("Medication duration: " + getDuration());
+        System.out.println("Medication start date: " + getStartDate());
+        System.out.println("Medication dosage: " + getDosage());
+        System.out.println("Medication notes: " + getNotes());
+        System.out.println("");
     }
 }

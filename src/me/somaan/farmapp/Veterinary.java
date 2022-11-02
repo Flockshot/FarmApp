@@ -58,5 +58,6 @@ public class Veterinary {
         System.out.println("Veterinary's gender: " + getGender());
         System.out.println("Veterinary's date of birth: " + getDateOfBirth().format(DateTimeFormatter.ofPattern("dd/MM/yyyy")));
         System.out.println("Veterinary's Salary: " + getSalary());
+        System.out.println("");
     }
 }
